@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mutton Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #004b8d, #2e8ca6);
+      padding: 20px;
+      color: #000;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #4CAF50;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      background-color: rgba(0, 0, 0, 0.1);
+      color: black;
+      font-weight: bold;
+    }
+
+    input::placeholder,
+    select,
+    textarea::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    label {
+      text-align: left;
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .submit-area {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #00a32a;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    button:disabled {
+      background-color: gray;
+    }
+
+    .info-box {
+      margin-top: 20px;
+      font-size: 13px;
+      background: #fff2cc;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mutton Order Form</h1>
+  <div class="form-container">
+    <p><strong>Thank you for visiting our page and choosing us! We offer fresh, live-cut mutton delivered to your doorstep.</strong></p>
+
+    <form id="orderForm">
+      <label>First Name*</label>
+      <input type="text" name="First Name" placeholder="Enter Your Name Here" required>
+
+      <label>Last Name*</label>
+      <input type="text" name="Last Name" placeholder="House Name / Initial" required>
+
+      <label>Phone Number*</label>
+      <input type="tel" name="Phone Number" placeholder="Enter 10-digit number" required pattern="[0-9]{10}">
+
+      <label>Select Size Of Pieces*</label>
+      <select name="Size Of Pieces" required>
+        <option value="" disabled selected>Select Size Of Pieces</option>
+        <option value="Large (For Biriyani)">Large (For Biriyani)</option>
+        <option value="Small (For Curry)">Small (For Curry)</option>
+      </select>
+
+      <label>Select Weight*</label>
+      <select name="Weight" required>
+        <option value="" disabled selected>Select Weight</option>
+        ${[...Array(30).keys()].map(i => i % 2 === 0 && i !== 0 ? `<option value="${i/2} kg">${i/2} kg</option>` : '').join('')}
+      </select>
+
+      <label>Your Preferred Delivery Time*</label>
+      <input type="text" name="Preferred Delivery Time" placeholder="e.g., 10:00 AM or 6:30 PM" required>
+
+      <label>Your House Number*</label>
+      <input type="text" name="House Number" placeholder="e.g., 1-11" required>
+
+      <label>Your Area Name*</label>
+      <input type="text" name="Area Name" placeholder="e.g., Narukur or Allipuram" required>
+
+      <label>Your Nearest Landmark*</label>
+      <input type="text" name="Nearest Landmark" placeholder="e.g., Near Temple, School" required>
+
+      <label>Pin Code*</label>
+      <input type="text" name="Pin Code" placeholder="e.g., 524002" required pattern="[0-9]{6}">
+
+      <label>Town / City Name*</label>
+      <input type="text" name="Town / City Name" placeholder="e.g., Nellore" required>
+
+      <button type="button" onclick="getLocation()">Use My Location (Optional)</button>
+      <input type="hidden" name="Latitude">
+      <input type="hidden" name="Longitude">
+
+      <label>Mention anything about this order here (Optional)</label>
+      <textarea name="Note" placeholder="Mention anything about this order here..."></textarea>
+
+      <label><input type="checkbox" id="tickBox"> Tick Box</label>
+
+      <div class="submit-area">
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="info-box">
+    <strong>Please double-check the details you entered above before submitting</strong><br><br>
+    For fast and contactless delivery, kindly send us your current location via WhatsApp.<br>
+    Open WhatsApp → Tap 📎 → Tap "Location" → Send "Your current location".
+  </div>
+
+  <script>
+    // Enable Submit only if checkbox is checked
+    document.getElementById("tickBox").addEventListener("change", function () {
+      document.getElementById("submitBtn").disabled = !this.checked;
+    });
+
+    // Get Location
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
+          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
+          alert("Location added successfully!");
+        }, function() {
+          alert("Unable to fetch location. Please allow location access.");
+        });
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    }
+
+    // Submit to Google Sheet
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      formData.append("Ordered Date", new Date().toLocaleString());
+
+      fetch("https://script.google.com/macros/s/AKfycbxjNS1lODDtgbH3ItrvpUSP2xsnOCRkevqTVVWUGb1Mo6v5lXWvu4n5guQjofAnG8Un6Q/exec", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Order submitted successfully!");
+          form.reset();
+          document.getElementById("submitBtn").disabled = true;
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
