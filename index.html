@@ -104,9 +104,39 @@
 
       <label>Select Weight*</label>
       <select name="Weight" required>
-        <option value="" disabled selected>Select Weight</option>
-        ${[...Array(30).keys()].map(i => i % 2 === 0 && i !== 0 ? `<option value="${i/2} kg">${i/2} kg</option>` : '').join('')}
-      </select>
+  <option value="" disabled selected>Select Weight</option>
+  <option value="0.5 kg">0.5 kg</option>
+  <option value="1 kg">1 kg</option>
+  <option value="1.5 kg">1.5 kg</option>
+  <option value="2 kg">2 kg</option>
+  <option value="2.5 kg">2.5 kg</option>
+  <option value="3 kg">3 kg</option>
+  <option value="3.5 kg">3.5 kg</option>
+  <option value="4 kg">4 kg</option>
+  <option value="4.5 kg">4.5 kg</option>
+  <option value="5 kg">5 kg</option>
+  <option value="5.5 kg">5.5 kg</option>
+  <option value="6 kg">6 kg</option>
+  <option value="6.5 kg">6.5 kg</option>
+  <option value="7 kg">7 kg</option>
+  <option value="7.5 kg">7.5 kg</option>
+  <option value="8 kg">8 kg</option>
+  <option value="8.5 kg">8.5 kg</option>
+  <option value="9 kg">9 kg</option>
+  <option value="9.5 kg">9.5 kg</option>
+  <option value="10 kg">10 kg</option>
+  <option value="10.5 kg">10.5 kg</option>
+  <option value="11 kg">11 kg</option>
+  <option value="11.5 kg">11.5 kg</option>
+  <option value="12 kg">12 kg</option>
+  <option value="12.5 kg">12.5 kg</option>
+  <option value="13 kg">13 kg</option>
+  <option value="13.5 kg">13.5 kg</option>
+  <option value="14 kg">14 kg</option>
+  <option value="14.5 kg">14.5 kg</option>
+  <option value="15 kg">15 kg</option>
+</select>
+
 
       <label>Your Preferred Delivery Time*</label>
       <input type="text" name="Preferred Delivery Time" placeholder="e.g., 10:00 AM or 6:30 PM" required>
