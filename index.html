@@ -114,6 +114,14 @@ button:active {
       .form-container {
         padding: 15px;
       }
+      .tick-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+        text-align: left;
+      }
 
       button {
         font-size: 16px;
@@ -228,7 +236,10 @@ button:active {
       <label>Mention anything about this order here (Optional)</label>
       <textarea name="Note" placeholder="Mention anything about this order here..."></textarea>
 
-      <label><input type="checkbox" id="tickBox" /> Tick Box</label>
+      <div class="tick-area">
+  <input type="checkbox" id="tickBox" />
+  <label for="tickBox">I confirm that all the above details are correct and I want to place the order.</label>
+</div>
 
       <div class="submit-area">
         <button type="submit" id="submitBtn" disabled>Submit</button>
