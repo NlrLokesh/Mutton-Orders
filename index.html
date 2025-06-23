@@ -20,7 +20,7 @@
 
     h1 {
       background-color: #4CAF50;
-      padding: 10px 1.5in; /* Keep your 1.5 inch gap */
+      padding: 10px 1.5in; /* Keep your 1.5 inch gap for mutton order form tittle background*/
       color: white;
       border-radius: 10px;
       display: inline-block;
@@ -67,15 +67,16 @@
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #00a32a;
-      border: none;
-      color: white;
-      cursor: pointer;
-      border-radius: 10px;
-      width: 100%;
-    }
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #00a32a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px; /* 👈 Add this line to create spacing  for send my location button*/
+}
 
     button:disabled {
       background-color: gray;
@@ -85,7 +86,7 @@
       margin: 20px auto;
       font-size: 13px;
       background: #fff2cc;
-      padding: 10px 0.3in; /* Keep your 0.3 inch gap */
+      padding: 10px 0.5in; /* Keep your 0.5 inch gap for bottom note bacground */
       border-radius: 10px;
       display: inline-block;
       max-width: 90%;
@@ -117,7 +118,7 @@
   <h1>Mutton Order Form</h1>
 
   <div class="form-container">
-    <p><strong>Thank you for visiting our page and choosing us! We offer fresh, live-cut mutton delivered to your doorstep.</strong></p>
+    <p><strong>Thank you for visiting our page and choosing us! We offer fresh, live-cut mutton delivered to your House.</strong></p>
 
     <form id="orderForm">
       <label>First Name*</label>
@@ -173,7 +174,7 @@
       </select>
 
       <label>Your Preferred Delivery Time On Sunday*</label>
-      <input type="text" name="Preferred Delivery Time" placeholder="Choose Between 6:30 AM To 7:30 PM.Keep AM OR PM" required />
+      <input type="text" name="Preferred Delivery Time" placeholder="Choose Between 6:30 AM To 7:30 PM. Keep AM OR PM" required />
 
       <label>Your House Number*</label>
       <input type="text" name="House Number" placeholder="e.g., 1-11" required />
