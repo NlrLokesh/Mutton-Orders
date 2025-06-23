@@ -20,7 +20,7 @@
 
     h1 {
       background-color: #4CAF50;
-      padding: 10px 1.5in; /* Keep your 1.5 inch gap for mutton order form tittle background*/
+      padding: 10px 1.5in;
       color: white;
       border-radius: 10px;
       display: inline-block;
@@ -67,43 +67,43 @@
     }
 
     .submit-btn {
-  padding: 12px 20px;
-  font-size: 18px;
-  background: linear-gradient(to right, #28a745, #218838);
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 100%;
-  margin-top: 10px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  font-weight: bold;
-  box-shadow: 0 4px 0 #14532d;
-}
+      padding: 12px 20px;
+      font-size: 18px;
+      background: linear-gradient(to right, #28a745, #218838);
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+      box-shadow: 0 4px 0 #14532d;
+    }
 
-.submit-btn:hover {
-  background: linear-gradient(to right, #218838, #1e7e34);
-  transform: scale(1.02);
-}
+    .submit-btn:hover {
+      background: linear-gradient(to right, #218838, #1e7e34);
+      transform: scale(1.02);
+    }
 
-.submit-btn:active {
-  transform: scale(0.98);
-  box-shadow: none;
-}
+    .submit-btn:active {
+      transform: scale(0.98);
+      box-shadow: none;
+    }
 
-.submit-btn:disabled {
-  background: linear-gradient(to right, #999, #aaa);
-  color: #eee;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-}
+    .submit-btn:disabled {
+      background: linear-gradient(to right, #999, #aaa);
+      color: #eee;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
 
     .info-box {
       margin: 20px auto;
       font-size: 13px;
       background: #fff2cc;
-      padding: 10px 0.5in; /* Keep your 0.5 inch gap for bottom note bacground */
+      padding: 10px 0.5in;
       border-radius: 10px;
       display: inline-block;
       max-width: 90%;
@@ -119,6 +119,7 @@
       .form-container {
         padding: 15px;
       }
+
       .tick-area {
         display: flex;
         align-items: center;
@@ -136,9 +137,10 @@
         font-size: 12px;
         padding: 10px 0.08in;
       }
+
       .location-btn {
-  margin-top: 13px;  /* Keep 13 px gap above for send my location button */
-}
+        margin-top: 13px;
+      }
     }
   </style>
 </head>
@@ -169,7 +171,6 @@
       <label>Select Weight*</label>
       <select name="Weight" required>
         <option value="" disabled selected>Select Weight</option>
-        <!-- You can keep all options as before -->
         <option value="0.5 kg">0.5 kg</option>
         <option value="1 kg">1 kg</option>
         <option value="1.5 kg">1.5 kg</option>
@@ -202,25 +203,25 @@
         <option value="15 kg">15 kg</option>
       </select>
 
-     <label>Your Preferred Delivery Time On Sunday*</label>
-<select name="Preferred Delivery Time" required>
-  <option value="" disabled selected>Select Delivery Time</option>
-  <option value="6:00 AM Morning">6:00 AM Morning</option>
-  <option value="6:30 AM Morning">6:30 AM Morning</option>
-  <option value="7:00 AM Morning">7:00 AM Morning</option>
-  <option value="7:30 AM Morning">7:30 AM Morning</option>
-  <option value="8:00 AM Morning">8:00 AM Morning</option>
-  <option value="8:30 AM Morning">8:30 AM Morning</option>
-  <option value="9:00 AM Morning">9:00 AM Morning</option>
-  <option value="9:30 AM Morning">9:30 AM Morning</option>
-  <option value="10:00 AM Morning">10:00 AM Morning</option>
-  <option value="10:30 AM Morning">10:30 AM Morning</option>
-  <option value="11:00 AM Morning">11:00 AM Morning</option>
-  <option value="11:30 AM Morning">11:30 AM Morning</option>
-  <option value="12:00 PM Afternoon">12:00 PM Afternoon</option>
-  <option value="12:30 PM Afternoon">12:30 PM Afternoon</option>
-  <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
-</select>
+      <label>Your Preferred Delivery Time On Sunday*</label>
+      <select name="Preferred Delivery Time" required>
+        <option value="" disabled selected>Select Delivery Time</option>
+        <option value="6:00 AM Morning">6:00 AM Morning</option>
+        <option value="6:30 AM Morning">6:30 AM Morning</option>
+        <option value="7:00 AM Morning">7:00 AM Morning</option>
+        <option value="7:30 AM Morning">7:30 AM Morning</option>
+        <option value="8:00 AM Morning">8:00 AM Morning</option>
+        <option value="8:30 AM Morning">8:30 AM Morning</option>
+        <option value="9:00 AM Morning">9:00 AM Morning</option>
+        <option value="9:30 AM Morning">9:30 AM Morning</option>
+        <option value="10:00 AM Morning">10:00 AM Morning</option>
+        <option value="10:30 AM Morning">10:30 AM Morning</option>
+        <option value="11:00 AM Morning">11:00 AM Morning</option>
+        <option value="11:30 AM Morning">11:30 AM Morning</option>
+        <option value="12:00 PM Afternoon">12:00 PM Afternoon</option>
+        <option value="12:30 PM Afternoon">12:30 PM Afternoon</option>
+        <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
+      </select>
 
       <label>Your House Number*</label>
       <input type="text" name="House Number" placeholder="e.g., 1-11" required />
@@ -245,9 +246,12 @@
       <textarea name="Note" placeholder="Mention anything about this order here..."></textarea>
 
       <div class="tick-area">
-  <input type="checkbox" id="tickBox" />
-  <label for="tickBox">I confirm that all the above details are correct and I want to place the order.</label>
-</div>
+        <input type="checkbox" id="tickBox" />
+        <label for="tickBox">I confirm that all the above details are correct and I want to place the order.</label>
+      </div>
+
+      <!-- ✅ Hidden input for language -->
+      <input type="hidden" name="Language" value="English" />
 
       <div class="submit-area">
         <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit</button>
@@ -287,19 +291,19 @@
       formData.append("Ordered Date", new Date().toLocaleString());
 
       fetch("https://script.google.com/macros/s/AKfycbxjNS1lODDtgbH3ItrvpUSP2xsnOCRkevqTVVWUGb1Mo6v5lXWvu4n5guQjofAnG8Un6Q/exec", {
-  method: "POST",
-  body: formData
-})
-.then(response => {
-  if (response.ok) {
-    alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
-    form.reset(); // This resets the form
-    document.getElementById("submitBtn").disabled = true; // Disable submit again
-    document.getElementById("tickBox").checked = false; // Uncheck the tick box
-  } else {
-    alert("Something went wrong. Please try again.");
-  }
-});
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
+          form.reset();
+          document.getElementById("submitBtn").disabled = true;
+          document.getElementById("tickBox").checked = false;
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      });
     });
   </script>
 </body>
