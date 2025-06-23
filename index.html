@@ -66,7 +66,7 @@
       margin-top: 20px;
     }
 
-    button {
+    .submit-btn {
   padding: 12px 20px;
   font-size: 18px;
   background: linear-gradient(to right, #28a745, #218838);
@@ -76,23 +76,28 @@
   border-radius: 10px;
   width: 100%;
   margin-top: 10px;
-  transition: all 0.2s ease-in-out;
+  transition: background 0.3s ease, transform 0.2s ease;
   font-weight: bold;
   box-shadow: 0 4px 0 #14532d;
 }
 
-button:hover {
+.submit-btn:hover {
   background: linear-gradient(to right, #218838, #1e7e34);
   transform: scale(1.02);
 }
 
-button:active {
+.submit-btn:active {
   transform: scale(0.98);
   box-shadow: none;
 }
-    button:disabled {
-      background-color: gray;
-    }
+
+.submit-btn:disabled {
+  background: linear-gradient(to right, #999, #aaa);
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
 
     .info-box {
       margin: 20px auto;
@@ -242,7 +247,7 @@ button:active {
 </div>
 
       <div class="submit-area">
-        <button type="submit" id="submitBtn" disabled>Submit</button>
+        <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit</button>
       </div>
     </form>
   </div>
