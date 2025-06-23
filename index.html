@@ -67,17 +67,29 @@
     }
 
     button {
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 18px;
-  background-color: #00a32a;
+  background: linear-gradient(to right, #28a745, #218838);
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 10px;
   width: 100%;
-  margin-top: 10px; /* 👈 Add this line to create spacing  for send my location button*/
+  margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #14532d;
 }
 
+button:hover {
+  background: linear-gradient(to right, #218838, #1e7e34);
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
     button:disabled {
       background-color: gray;
     }
@@ -173,8 +185,25 @@
         <option value="15 kg">15 kg</option>
       </select>
 
-      <label>Your Preferred Delivery Time On Sunday*</label>
-      <input type="text" name="Preferred Delivery Time" placeholder="Choose Between 6:30 AM To 7:30 PM. Keep AM OR PM" required />
+     <label>Your Preferred Delivery Time On Sunday*</label>
+<select name="Preferred Delivery Time" required>
+  <option value="" disabled selected>Select Delivery Time</option>
+  <option value="6:00 AM Morning">6:00 AM Morning</option>
+  <option value="6:30 AM Morning">6:30 AM Morning</option>
+  <option value="7:00 AM Morning">7:00 AM Morning</option>
+  <option value="7:30 AM Morning">7:30 AM Morning</option>
+  <option value="8:00 AM Morning">8:00 AM Morning</option>
+  <option value="8:30 AM Morning">8:30 AM Morning</option>
+  <option value="9:00 AM Morning">9:00 AM Morning</option>
+  <option value="9:30 AM Morning">9:30 AM Morning</option>
+  <option value="10:00 AM Morning">10:00 AM Morning</option>
+  <option value="10:30 AM Morning">10:30 AM Morning</option>
+  <option value="11:00 AM Morning">11:00 AM Morning</option>
+  <option value="11:30 AM Morning">11:30 AM Morning</option>
+  <option value="12:00 PM Afternoon">12:00 PM Afternoon</option>
+  <option value="12:30 PM Afternoon">12:30 PM Afternoon</option>
+  <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
+</select>
 
       <label>Your House Number*</label>
       <input type="text" name="House Number" placeholder="e.g., 1-11" required />
