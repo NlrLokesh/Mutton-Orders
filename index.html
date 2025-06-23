@@ -80,7 +80,7 @@
       <input type="text" name="First Name" placeholder="Enter Your Name Here" required />
 
       <label>Last Name*</label>
-      <input type="text" name="Last Name" placeholder="House Name / Initial" required />
+      <input type="text" name="Last Name" placeholder="Enter Your Surname Or Initial Or Family Name Here" required />
 
       <label>Phone Number*</label>
       <input type="tel" name="Phone Number" placeholder="Enter 10-digit number" required pattern="[0-9]{10}" />
@@ -127,8 +127,8 @@
         <option value="15 kg">15 kg</option>
       </select>
 
-      <label>Your Preferred Delivery Time*</label>
-      <input type="text" name="Preferred Delivery Time" placeholder="e.g., 10:00 AM or 6:30 PM" required />
+      <label>Your Preferred Delivery Time On Sunday*</label>
+      <input type="text" name="Preferred Delivery Time" placeholder="Choose Between 6:30 AM To 7:30 PM. Mention AM OR PM" required />
 
       <label>Your House Number*</label>
       <input type="text" name="House Number" placeholder="e.g., 1-11" required />
@@ -145,7 +145,7 @@
       <label>Town / City Name*</label>
       <input type="text" name="Town / City Name" placeholder="e.g., Nellore" required />
 
-      <button type="button" onclick="getLocation()">Use My Location (Optional)</button>
+      <button type="button" onclick="getLocation()">Send My Location ( Recomended )</button>
       <input type="hidden" name="Latitude" />
       <input type="hidden" name="Longitude" />
 
@@ -178,7 +178,7 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           document.querySelector("input[name='Latitude']").value = position.coords.latitude;
           document.querySelector("input[name='Longitude']").value = position.coords.longitude;
-          alert("Location added successfully!");
+          alert("LOCATION ADDED SUCCESSFULLY!");
         }, function() {
           alert("Unable to fetch location. Please allow location access.");
         });
@@ -200,7 +200,7 @@
       })
       .then(response => {
         if (response.ok) {
-          alert("Order submitted successfully!");
+          alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
           form.reset();
           document.getElementById("submitBtn").disabled = true;
         } else {
