@@ -279,18 +279,19 @@ button:active {
       formData.append("Ordered Date", new Date().toLocaleString());
 
       fetch("https://script.google.com/macros/s/AKfycbxjNS1lODDtgbH3ItrvpUSP2xsnOCRkevqTVVWUGb1Mo6v5lXWvu4n5guQjofAnG8Un6Q/exec", {
-        method: "POST",
-        body: formData
-      })
-        .then(response => {
-          if (response.ok) {
-            alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
-            form.reset();
-            document.getElementById("submitBtn").disabled = true;
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
-        });
+  method: "POST",
+  body: formData
+})
+.then(response => {
+  if (response.ok) {
+    alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
+    form.reset(); // This resets the form
+    document.getElementById("submitBtn").disabled = true; // Disable submit again
+    document.getElementById("tickBox").checked = false; // Uncheck the tick box
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+});
     });
   </script>
 </body>
