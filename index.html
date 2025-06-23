@@ -136,6 +136,9 @@
         font-size: 12px;
         padding: 10px 0.08in;
       }
+      .location-btn {
+  margin-top: 13px;  /* Keep 13 px gap above for send my location button */
+}
     }
   </style>
 </head>
@@ -234,7 +237,7 @@
       <label>Town / City Name*</label>
       <input type="text" name="Town / City Name" placeholder="e.g., Nellore" required />
 
-      <button type="button" onclick="getLocation()">Send My Location (Recommended)</button>
+      <button type="button" class="submit-btn location-btn" onclick="getLocation()">Send My Location (Recommended)</button>
       <input type="hidden" name="Latitude" />
       <input type="hidden" name="Longitude" />
 
