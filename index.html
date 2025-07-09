@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nellore Mutton Club</title>
   <style>
     * {
@@ -11,44 +11,39 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #080705;
+      background-color: #000000; /* Changed to black */
       margin: 0;
       padding: 20px;
-      color: #d4af37;
+      color: #d4af37; /* Gold color */
       text-align: center;
-    }
-
-    .header-with-goats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .header-with-goats img {
-      height: 40px;
-      width: auto;
-    }
-
-    .goat-left {
-      transform: scaleX(-1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
     }
 
     h1 {
-      margin: 0;
-      font-size: 28px;
-      color: #d4af37;
-      font-weight: bold;
+      background-color: #b8860b; /* Dark gold */
+      padding: 10px 1.5in;
+      color: #fff8dc; /* Light cream for contrast */
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 90%;
+      word-wrap: break-word;
+      box-shadow: 0 0 10px #b8860baa;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     .form-container {
-      background-color: #1a1a1a;
+      background-color: #1a1a1a; /* Dark charcoal instead of white */
       border-radius: 15px;
-      padding: 20px;
+      padding: 25px 20px;
+      width: 100%;
       max-width: 500px;
       margin: 20px auto;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 15px #d4af3740; /* subtle gold glow */
+      color: #d4af37;
+      text-align: left;
     }
 
     input, select, textarea {
@@ -56,86 +51,319 @@
       padding: 10px;
       margin-top: 10px;
       border-radius: 5px;
-      border: 1px solid #aaa;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
+      border: 1px solid #d4af37;
+      background-color: #000;
+      color: #d4af37;
       font-weight: bold;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
     }
 
     input::placeholder,
+    select,
     textarea::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: #aa8f34;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 5px #ffd700aa;
+      background-color: #111;
     }
 
     label {
       text-align: left;
       display: block;
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 700;
+      color: #d4af37;
+      font-size: 1.05rem;
+      user-select: none;
     }
 
     .submit-area {
-      margin-top: 20px;
+      margin-top: 25px;
+      text-align: center;
     }
 
     .submit-btn {
-      padding: 12px 20px;
+      padding: 14px 25px;
       font-size: 18px;
-      background: linear-gradient(to right, #d4af37, #b88a00);
+      background: linear-gradient(90deg, #b8860b, #ffd700);
       border: none;
-      color: black;
+      color: #000;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 12px;
       width: 100%;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 5px 0 #8b6b00;
+      user-select: none;
+      letter-spacing: 0.05em;
     }
 
-    .submit-btn:hover {
-      transform: scale(1.02);
+    .submit-btn:hover:not(:disabled) {
+      background: linear-gradient(90deg, #ffd700, #b8860b);
+      transform: scale(1.05);
+      box-shadow: 0 7px 15px #ffd700aa;
+      color: #000;
+    }
+
+    .submit-btn:active:not(:disabled) {
+      transform: scale(0.98);
+      box-shadow: none;
     }
 
     .submit-btn:disabled {
-      background: #666;
-      color: #ccc;
+      background: linear-gradient(to right, #444, #666);
+      color: #bbb;
       cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
     }
 
     .info-box {
       margin: 20px auto;
       font-size: 13px;
-      background: #333;
-      color: #fff3cd;
-      padding: 10px;
+      background: #3d2e00;
+      padding: 10px 0.5in;
       border-radius: 10px;
-      max-width: 500px;
+      display: inline-block;
+      max-width: 90%;
+      word-wrap: break-word;
+      color: #ffeb99;
+      box-shadow: 0 0 8px #b8860b99 inset;
+      line-height: 1.4;
+    }
+
+    .tick-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: left;
+      color: #d4af37;
+      user-select: none;
+    }
+
+    .tick-area input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #b8860b;
+    }
+
+    .location-btn {
+      margin-top: 13px;
+      background: linear-gradient(90deg, #333300, #999900);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 4px 0 #666600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .location-btn:hover {
+      background: linear-gradient(90deg, #999900, #333300);
+      transform: scale(1.03);
+    }
+
+    .location-btn:active {
+      transform: scale(0.97);
+      box-shadow: none;
     }
 
     @media (max-width: 480px) {
       h1 {
         font-size: 22px;
+        padding: 10px 0.08in;
       }
 
-      .header-with-goats img {
-        height: 30px;
+      .form-container {
+        padding: 20px 15px;
+      }
+
+      .tick-area {
+        font-size: 13px;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      button {
+        font-size: 16px;
       }
 
       .info-box {
         font-size: 12px;
+        padding: 10px 0.08in;
       }
     }
   </style>
 </head>
 <body>
+  <h1>Nellore Mutton Club</h1>
 
-  <div class="header-with-goats">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAEAAElEQVR4nOy96ZokN84zClL53v/9nq+CPD8AUIrs8jZu213doXk8..." class="goat-left" alt="goat" />
-    <h1>Nellore Mutton Club</h1>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAEAAElEQVR4nOy96ZokN84zClL53v/9nq+CPD8AUIrs8jZu213doXk8..." alt="goat" />
+  <div class="form-container">
+    <p><strong>Thank you for visiting our page and choosing us! We offer fresh, live-cut mutton delivered to your House.</strong></p>
+
+    <form id="orderForm">
+      <label>First Name*</label>
+      <input type="text" name="First Name" placeholder="Enter Your Name Here" required />
+
+      <label>Last Name*</label>
+      <input type="text" name="Last Name" placeholder="Enter Your Surname Or Initial Or Family Name Here" required />
+
+      <label>Phone Number*</label>
+      <input type="tel" name="Phone Number" placeholder="Enter 10-digit number" required pattern="[0-9]{10}" />
+
+      <label>Select Size Of Pieces*</label>
+      <select name="Size Of Pieces" required>
+        <option value="" disabled selected>Select Size Of Pieces</option>
+        <option value="Large (For Biriyani)">Large (For Biriyani)</option>
+        <option value="Medium (For Curry)">Medium (For Curry)</option>
+        <option value="Small (For Mutton Kheema)">Small (For Mutton Kheema)</option>
+      </select>
+
+      <label>Select Weight*</label>
+      <select name="Weight" required>
+        <option value="" disabled selected>Select Weight</option>
+        <option value="0.5 kg">0.5 kg</option>
+        <option value="1 kg">1 kg</option>
+        <option value="1.5 kg">1.5 kg</option>
+        <option value="2 kg">2 kg</option>
+        <option value="2.5 kg">2.5 kg</option>
+        <option value="3 kg">3 kg</option>
+        <option value="3.5 kg">3.5 kg</option>
+        <option value="4 kg">4 kg</option>
+        <option value="4.5 kg">4.5 kg</option>
+        <option value="5 kg">5 kg</option>
+        <option value="5.5 kg">5.5 kg</option>
+        <option value="6 kg">6 kg</option>
+        <option value="6.5 kg">6.5 kg</option>
+        <option value="7 kg">7 kg</option>
+        <option value="7.5 kg">7.5 kg</option>
+        <option value="8 kg">8 kg</option>
+        <option value="8.5 kg">8.5 kg</option>
+        <option value="9 kg">9 kg</option>
+        <option value="9.5 kg">9.5 kg</option>
+        <option value="10 kg">10 kg</option>
+        <option value="10.5 kg">10.5 kg</option>
+        <option value="11 kg">11 kg</option>
+        <option value="11.5 kg">11.5 kg</option>
+        <option value="12 kg">12 kg</option>
+        <option value="12.5 kg">12.5 kg</option>
+        <option value="13 kg">13 kg</option>
+        <option value="13.5 kg">13.5 kg</option>
+        <option value="14 kg">14 kg</option>
+        <option value="14.5 kg">14.5 kg</option>
+        <option value="15 kg">15 kg</option>
+      </select>
+
+      <label>Your Preferred Delivery Time On Sunday*</label>
+      <select name="Preferred Delivery Time" required>
+        <option value="" disabled selected>Select Delivery Time</option>
+        <option value="6:00 AM Morning">6:00 AM Morning</option>
+        <option value="6:30 AM Morning">6:30 AM Morning</option>
+        <option value="7:00 AM Morning">7:00 AM Morning</option>
+        <option value="7:30 AM Morning">7:30 AM Morning</option>
+        <option value="8:00 AM Morning">8:00 AM Morning</option>
+        <option value="8:30 AM Morning">8:30 AM Morning</option>
+        <option value="9:00 AM Morning">9:00 AM Morning</option>
+        <option value="9:30 AM Morning">9:30 AM Morning</option>
+        <option value="10:00 AM Morning">10:00 AM Morning</option>
+        <option value="10:30 AM Morning">10:30 AM Morning</option>
+        <option value="11:00 AM Morning">11:00 AM Morning</option>
+        <option value="11:30 AM Morning">11:30 AM Morning</option>
+        <option value="12:00 PM Afternoon">12:00 PM Afternoon</option>
+        <option value="12:30 PM Afternoon">12:30 PM Afternoon</option>
+        <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
+      </select>
+
+      <label>Your House Number*</label>
+      <input type="text" name="House Number" placeholder="e.g., 1-11" required />
+
+      <label>Your Area Name*</label>
+      <input type="text" name="Area Name" placeholder="e.g., Narukur or Allipuram" required />
+
+      <label>Your Nearest Landmark*</label>
+      <input type="text" name="Nearest Landmark" placeholder="e.g., Near Temple, School" required />
+
+      <label>Pin Code*</label>
+      <input type="text" name="Pin Code" placeholder="e.g., 524002" required pattern="[0-9]{6}" />
+
+      <label>Town / City Name*</label>
+      <input type="text" name="Town / City Name" placeholder="e.g., Nellore" required />
+
+      <button type="button" class="submit-btn location-btn" onclick="getLocation()">Send My Location (Press Here)</button>
+      <input type="hidden" name="Latitude" />
+      <input type="hidden" name="Longitude" />
+
+      <label>Mention anything about this order here (Optional)</label>
+      <textarea name="Note" placeholder="Mention anything about this order here..."></textarea>
+
+      <div class="tick-area">
+        <input type="checkbox" id="tickBox" />
+        <label for="tickBox">I confirm that all the above details are correct and I want to place the order. ( Tick the box above )</label>
+      </div>
+
+      <!-- ✅ Hidden input for language -->
+      <input type="hidden" name="Language" value="English" />
+
+      <div class="submit-area">
+        <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit</button>
+      </div>
+    </form>
   </div>
 
-  <!-- KEEP YOUR FORM AND JS BELOW UNCHANGED -->
-  <!-- ... (rest of your code here) ... -->
+  <div class="info-box">
+    <strong>Please double-check the details you entered above before submitting</strong><br /><br />
+    For fast and contactless delivery, kindly send us your current location via WhatsApp.<br />
+    Open WhatsApp → Tap 📎 → Tap "Location" → Send "Your current location".
+  </div>
 
+  <script>
+    document.getElementById("tickBox").addEventListener("change", function () {
+      document.getElementById("submitBtn").disabled = !this.checked;
+    });
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
+          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
+          alert("LOCATION ADDED SUCCESSFULLY!");
+        }, function () {
+          alert("Unable to fetch location. Please allow location access.");
+        });
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      formData.append("Ordered Date", new Date().toLocaleString());
+
+      fetch("https://script.google.com/macros/s/AKfycbzFzR64ra_OdygBNYt4VaZCGwFCCibWYmBiOWOxUg2lLWfcX20ep1do-AgRycbcEZUSMw/exec", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
+          form.reset();
+          document.getElementById("submitBtn").disabled = true;
+          document.getElementById("tickBox").checked = false;
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
