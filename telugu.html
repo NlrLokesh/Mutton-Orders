@@ -9,31 +9,43 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #004b8d, #2e8ca6);
+      background-color: #000000;
       margin: 0;
       padding: 20px;
-      color: #000;
+      color: #ffffff;
       text-align: center;
+      line-height: 1.5;
     }
 
     h1 {
-      background-color: #4CAF50;
+      background: linear-gradient(90deg, #b8860b, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
       padding: 10px 1.5in;
-      color: white;
       border-radius: 10px;
       display: inline-block;
       max-width: 90%;
       word-wrap: break-word;
+      font-weight: 900;
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #ffd700aa, 0 0 15px #b8860bcc;
+      user-select: none;
+      margin: 0 auto 20px;
     }
 
     .form-container {
-      background-color: #fff;
+      background-color: #1a1a1a;
       border-radius: 15px;
-      padding: 20px;
+      padding: 25px 20px;
       width: 100%;
       max-width: 500px;
       margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 15px #ffffff40;
+      color: #ffffff;
+      text-align: left;
     }
 
     input, select, textarea {
@@ -41,60 +53,155 @@
       padding: 10px;
       margin-top: 10px;
       border-radius: 5px;
-      border: 1px solid #aaa;
-      background-color: rgba(0, 0, 0, 0.1);
-      color: black;
+      border: 1px solid #ffffff;
+      background-color: #000;
+      color: #ffffff;
       font-weight: bold;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input::placeholder,
+    select,
+    textarea::placeholder {
+      color: #cccccc;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 5px #ffd700aa;
+      background-color: #111;
     }
 
     label {
       text-align: left;
       display: block;
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+
+    .submit-area {
+      margin-top: 25px;
+      text-align: center;
     }
 
     .submit-btn {
-      padding: 12px 20px;
+      padding: 14px 25px;
       font-size: 18px;
-      background: linear-gradient(to right, #28a745, #218838);
+      background: linear-gradient(90deg, #b8860b, #ffd700);
       border: none;
-      color: white;
+      color: #000;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 12px;
       width: 100%;
       margin-top: 10px;
-      font-weight: bold;
-      box-shadow: 0 4px 0 #14532d;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 5px 0 #8b6b00;
+      user-select: none;
+      letter-spacing: 0.05em;
     }
 
-    .submit-btn:hover {
-      background: linear-gradient(to right, #218838, #1e7e34);
-      transform: scale(1.02);
+    .submit-btn:hover:not(:disabled) {
+      background: linear-gradient(90deg, #ffd700, #b8860b);
+      transform: scale(1.05);
+      box-shadow: 0 7px 15px #ffd700aa;
+      color: #000;
+    }
+
+    .submit-btn:active:not(:disabled) {
+      transform: scale(0.98);
+      box-shadow: none;
     }
 
     .submit-btn:disabled {
-      background: linear-gradient(to right, #999, #aaa);
+      background: linear-gradient(to right, #444, #666);
+      color: #bbb;
       cursor: not-allowed;
       box-shadow: none;
+      transform: none;
     }
 
     .info-box {
       margin: 20px auto;
       font-size: 13px;
-      background: #fff2cc;
+      background: #3d2e00;
       padding: 10px 0.5in;
       border-radius: 10px;
       display: inline-block;
       max-width: 90%;
       word-wrap: break-word;
+      color: #ffffff;
+      box-shadow: 0 0 8px #ffffff99 inset;
+      line-height: 1.4;
+    }
+
+    .tick-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: left;
+      color: #ffffff;
+      user-select: none;
+    }
+
+    .tick-area input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #b8860b;
+    }
+
+    .location-btn {
+      margin-top: 13px;
+      background: linear-gradient(90deg, #333300, #999900);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 4px 0 #666600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .location-btn:hover {
+      background: linear-gradient(90deg, #999900, #333300);
+      transform: scale(1.03);
+    }
+
+    .location-btn:active {
+      transform: scale(0.97);
+      box-shadow: none;
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 20px; padding: 10px 0.08in; }
-      .form-container { padding: 15px; }
-      .info-box { font-size: 12px; padding: 10px 0.08in; }
-      .location-btn { margin-top: 13px; }
+      h1 {
+        font-size: 2rem;
+        padding: 10px 0.08in;
+      }
+
+      .form-container {
+        padding: 20px 15px;
+      }
+
+      .tick-area {
+        font-size: 13px;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+
+      .info-box {
+        font-size: 12px;
+        padding: 10px 0.08in;
+      }
     }
   </style>
 </head>
@@ -247,7 +354,6 @@
         }
       });
     });
-  </script>
+  </script>  <!-- Keep your Telugu HTML content here exactly as you had before -->
 </body>
 </html>
-
