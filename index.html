@@ -27,7 +27,7 @@
     }
 
     .header-with-goats img {
-      height: 40px;
+      height: 50px;
       width: auto;
     }
 
@@ -43,7 +43,7 @@
     }
 
     .form-container {
-      background-color: #1a1a1a; /* Dark background for contrast */
+      background-color: #1a1a1a; /* Dark background */
       border-radius: 15px;
       padding: 20px;
       max-width: 500px;
@@ -111,13 +111,22 @@
       max-width: 500px;
     }
 
+    .tick-area {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
     @media (max-width: 480px) {
       h1 {
         font-size: 22px;
       }
 
       .header-with-goats img {
-        height: 30px;
+        height: 35px;
       }
 
       .info-box {
@@ -129,9 +138,9 @@
 <body>
 
   <div class="header-with-goats">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Goat.svg/64px-Goat.svg.png" class="goat-left" alt="goat" />
+    <img src="/mnt/data/A_vector-style_digital_illustration_of_a_golden_go.png" class="goat-left" alt="goat left" />
     <h1>Nellore Mutton Club</h1>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Goat.svg/64px-Goat.svg.png" alt="goat" />
+    <img src="/mnt/data/A_vector-style_digital_illustration_of_a_golden_go.png" alt="goat right" />
   </div>
 
   <div class="form-container">
@@ -158,7 +167,16 @@
       <label>Select Weight*</label>
       <select name="Weight" required>
         <option value="" disabled selected>Select Weight</option>
-        ${[...Array(30).keys()].filter(i => i % 2 === 0 && i > 0).map(i => `<option value="${i/2} kg">${i/2} kg</option>`).join('')}
+        <option value="0.5 kg">0.5 kg</option>
+        <option value="1 kg">1 kg</option>
+        <option value="1.5 kg">1.5 kg</option>
+        <option value="2 kg">2 kg</option>
+        <option value="2.5 kg">2.5 kg</option>
+        <option value="3 kg">3 kg</option>
+        <option value="3.5 kg">3.5 kg</option>
+        <option value="4 kg">4 kg</option>
+        <option value="4.5 kg">4.5 kg</option>
+        <option value="5 kg">5 kg</option>
       </select>
 
       <label>Preferred Delivery Time (Sunday)*</label>
