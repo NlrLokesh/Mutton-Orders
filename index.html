@@ -353,45 +353,75 @@
   </div>
 
   <script>
-    document.getElementById("tickBox").addEventListener("change", function () {
-      document.getElementById("submitBtn").disabled = !this.checked;
-    });
+  const submitBtn = document.getElementById("submitBtn");
+  const tickBox = document.getElementById("tickBox");
+  const form = document.getElementById("orderForm");
 
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
-          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
-          alert("LOCATION ADDED SUCCESSFULLY!");
-        }, function () {
-          alert("Unable to fetch location. Please allow location access.");
-        });
-      } else {
-        alert("Geolocation is not supported by your browser.");
-      }
-    }
+  // ✅ Enable/disable the submit button when checkbox is ticked
+  tickBox.addEventListener("change", function () {
+    submitBtn.disabled = !this.checked;
+  });
 
-    document.getElementById("orderForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-      formData.append("Ordered Date", new Date().toLocaleString());
-
-      fetch("https://script.google.com/macros/s/AKfycbzFzR64ra_OdygBNYt4VaZCGwFCCibWYmBiOWOxUg2lLWfcX20ep1do-AgRycbcEZUSMw/exec", {
-        method: "POST",
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
-          form.reset();
-          document.getElementById("submitBtn").disabled = true;
-          document.getElementById("tickBox").checked = false;
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        document.querySelector("input[name='Latitude']").value = position.coords.latitude;
+        document.querySelector("input[name='Longitude']").value = position.coords.longitude;
+        alert("LOCATION ADDED SUCCESSFULLY!");
+      }, function () {
+        alert("Unable to fetch location. Please allow location access.");
       });
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  }
+
+  // ✅ Prevent multiple form submissions
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // 🔒 Disable submit button instantly
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
+    `;
+
+    const formData = new FormData(form);
+    formData.append("Ordered Date", new Date().toLocaleString());
+
+    fetch("https://script.google.com/macros/s/AKfycbzFzR64ra_OdygBNYt4VaZCGwFCCibWYmBiOWOxUg2lLWfcX20ep1do-AgRycbcEZUSMw/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
+        form.reset();
+        tickBox.checked = false;
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(() => {
+      alert("Network error. Please check your connection and try again.");
+    })
+    .finally(() => {
+      submitBtn.innerHTML = "Submit";
+      submitBtn.disabled = true;
     });
-  </script>
+  });
+
+  // ✅ Spinner animation style
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+
 </body>
 </html>
