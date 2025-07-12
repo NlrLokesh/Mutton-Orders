@@ -272,20 +272,13 @@
         <option value="12:00 PM Afternoon">12:00 PM మధ్యాహ్నం</option>
       </select>
 
-      <label>ఇంటి నంబర్*</label>
-      <input type="text" name="House Number" placeholder="ఉదా: 1-11" required />
 
       <label>ఏరియా పేరు*</label>
       <input type="text" name="Area Name" placeholder="ఉదా: నరుకూరు" required />
 
-      <label>ల్యాండ్‌మార్క్*</label>
-      <input type="text" name="Nearest Landmark" placeholder="ఉదా: గుడి దగ్గర" required />
 
-      <label>పిన్ కోడ్*</label>
-      <input type="text" name="Pin Code" placeholder="ఉదా: 524002" required pattern="[0-9]{6}" />
 
-      <label>పట్టణం / నగరం పేరు*</label>
-      <input type="text" name="Town / City Name" placeholder="ఉదా: నెల్లూరు" required />
+  
 
       <button type="button" class="submit-btn location-btn" onclick="getLocation()"> మీ లొకేషన్ పంపండి (ఇక్కడ నొక్కండి)</button>
       <input type="hidden" name="Latitude" />
@@ -348,7 +341,7 @@
     const formData = new FormData(form);
     formData.append("Ordered Date", new Date().toLocaleString());
 
-    fetch("https://script.google.com/macros/s/AKfycbxS-4VncOLJGjONB4FNj5ymSIRnxJjP4tM9PdRruv03CZfTo6XAXSSk6evVkOwl22r50Q/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyi-lJSOYk4X5ameVJAKDxu_3pYtEpUqPhjeMbvRjg2N65GPsrvKbebH090hbNrLIMCZQ/exec", {
       method: "POST",
       body: formData
     })
