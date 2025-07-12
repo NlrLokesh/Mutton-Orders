@@ -25,7 +25,6 @@
       line-height: 1.5;
     }
 
-    /* ✅ Enhanced Heading Style */
     h1 {
       font-family: 'Cinzel', serif;
       font-weight: 900;
@@ -60,7 +59,6 @@
       }
     }
 
-    /* ✅ All your existing styles are unchanged below */
     .form-container {
       background-color: #1a1a1a;
       border-radius: 15px;
@@ -235,11 +233,36 @@
       <label>Select Weight*</label>
       <select name="Weight" required>
         <option value="" disabled selected>Select Weight</option>
-        <!-- Options from 0.5 kg to 15 kg -->
-        ${[...Array(30)].map((_, i) => {
-          const value = (i + 1) * 0.5;
-          return `<option value="${value} kg">${value} kg</option>`;
-        }).join("")}
+        <option value="0.5 kg">0.5 kg</option>
+        <option value="1 kg">1 kg</option>
+        <option value="1.5 kg">1.5 kg</option>
+        <option value="2 kg">2 kg</option>
+        <option value="2.5 kg">2.5 kg</option>
+        <option value="3 kg">3 kg</option>
+        <option value="3.5 kg">3.5 kg</option>
+        <option value="4 kg">4 kg</option>
+        <option value="4.5 kg">4.5 kg</option>
+        <option value="5 kg">5 kg</option>
+        <option value="5.5 kg">5.5 kg</option>
+        <option value="6 kg">6 kg</option>
+        <option value="6.5 kg">6.5 kg</option>
+        <option value="7 kg">7 kg</option>
+        <option value="7.5 kg">7.5 kg</option>
+        <option value="8 kg">8 kg</option>
+        <option value="8.5 kg">8.5 kg</option>
+        <option value="9 kg">9 kg</option>
+        <option value="9.5 kg">9.5 kg</option>
+        <option value="10 kg">10 kg</option>
+        <option value="10.5 kg">10.5 kg</option>
+        <option value="11 kg">11 kg</option>
+        <option value="11.5 kg">11.5 kg</option>
+        <option value="12 kg">12 kg</option>
+        <option value="12.5 kg">12.5 kg</option>
+        <option value="13 kg">13 kg</option>
+        <option value="13.5 kg">13.5 kg</option>
+        <option value="14 kg">14 kg</option>
+        <option value="14.5 kg">14.5 kg</option>
+        <option value="15 kg">15 kg</option>
       </select>
 
       <label>Your Preferred Delivery Time On Sunday*</label>
@@ -301,6 +324,7 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
@@ -356,5 +380,6 @@
     `;
     document.head.appendChild(style);
   </script>
+
 </body>
 </html>
