@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nellore Mutton Club</title>
-
-  <!-- ✅ Elegant font for premium heading -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nellore Mutton Club - Order Form</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,206 +11,96 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #000000;
+      background-color: #f2f2f2;
       margin: 0;
-      padding: 20px;
-      color: #ffffff;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.5;
-    }
-
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      letter-spacing: 0.12em;
-      background: linear-gradient(90deg, #ffcc00, #ffd700, #ffcc00);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      text-shadow:
-        0 0 8px rgba(255, 215, 0, 0.7),
-        0 0 15px rgba(184, 134, 11, 0.5),
-        0 0 20px rgba(255, 215, 0, 0.2);
-      animation: shine 3s linear infinite;
-      display: inline-block;
-      padding: 12px 0.5in;
-      margin: 0 auto 25px;
-      border-radius: 10px;
-      user-select: none;
-      max-width: 95%;
-      word-wrap: break-word;
-    }
-
-    @keyframes shine {
-      0% {
-        background-position: 0% center;
-      }
-      100% {
-        background-position: 200% center;
-      }
+      padding: 0;
     }
 
     .form-container {
-      background-color: #1a1a1a;
-      border-radius: 15px;
-      padding: 25px 20px;
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      box-shadow: 0 0 15px #ffffff40;
-      color: #ffffff;
-      text-align: left;
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ffd700;
-      background-color: #000;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input::placeholder,
-    select,
-    textarea::placeholder {
-      color: #cccccc;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #ffd700;
-      box-shadow: 0 0 10px 3px #ffd700cc;
-      background-color: #111;
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     label {
-      text-align: left;
       display: block;
       margin-top: 15px;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 1.05rem;
-      user-select: none;
+      font-weight: bold;
     }
 
-    .submit-area {
-      margin-top: 25px;
-      text-align: center;
-    }
-
-    .submit-btn {
-      padding: 14px 25px;
-      font-size: 18px;
-      background: linear-gradient(90deg, #b8860b, #ffd700);
-      border: none;
-      color: #000;
-      cursor: pointer;
-      border-radius: 12px;
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
       width: 100%;
-      margin-top: 10px;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      font-weight: 700;
-      box-shadow: 0 5px 0 #8b6b00;
-      user-select: none;
-      letter-spacing: 0.05em;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
     }
 
-    .submit-btn:hover:not(:disabled) {
-      background: linear-gradient(90deg, #ffd700, #b8860b);
-      transform: scale(1.05);
-      box-shadow: 0 7px 15px #ffd700aa;
-      color: #000;
-    }
-
-    .submit-btn:active:not(:disabled) {
-      transform: scale(0.98);
-      box-shadow: none;
-    }
-
-    .submit-btn:disabled {
-      background: linear-gradient(to right, #444, #666);
-      color: #bbb;
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .info-box {
-      margin: 20px auto;
-      font-size: 13px;
-      background: #3d2e00;
-      padding: 10px 0.5in;
-      border-radius: 10px;
-      display: inline-block;
-      max-width: 90%;
-      word-wrap: break-word;
-      color: #ffffff;
-      box-shadow: 0 0 8px #ffffff99 inset;
-      line-height: 1.4;
+    textarea {
+      height: 80px;
     }
 
     .tick-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin-top: 20px;
-      font-size: 14px;
-      text-align: left;
-      color: #ffffff;
-      user-select: none;
     }
 
-    .tick-area input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+    .submit-area {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
       cursor: pointer;
-      accent-color: #b8860b;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.6rem;
-        padding: 10px 0.08in;
-      }
+    .submit-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
 
+    /* ✅ Stylish Price Box */
+    .price-box {
+      margin-top: 20px;
+      background-color: #ffe0b2;
+      color: #333;
+      font-weight: bold;
+      font-size: 20px;
+      border-left: 6px solid #ff9800;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    @media screen and (max-width: 600px) {
       .form-container {
-        padding: 20px 15px;
-      }
-
-      .tick-area {
-        font-size: 13px;
-        gap: 8px;
-        margin-top: 18px;
-      }
-
-      button {
-        font-size: 16px;
-      }
-
-      .info-box {
-        font-size: 12px;
-        padding: 10px 0.08in;
+        margin: 20px;
+        padding: 20px;
       }
     }
   </style>
 </head>
-
 <body>
-  <h1>Nellore Mutton Club</h1>
-
   <div class="form-container">
-    <p><strong>Thank you for visiting our page and choosing us! We offer fresh, live-cut mutton delivered to your House.</strong></p>
-
+    <h2>Nellore Mutton Club - Order Form</h2>
     <form id="orderForm">
       <label>Full Name*</label>
       <input type="text" name="Full Name" placeholder="Enter Your Name Here" required />
@@ -231,38 +117,38 @@
       </select>
 
       <label>Select Weight*</label>
-      <select name="Weight" required>
+      <select name="Weight" id="weightSelect" required>
         <option value="" disabled selected>Select Weight</option>
-        <option value="0.5 kg">0.5 kg</option>
-        <option value="1 kg">1 kg</option>
-        <option value="1.5 kg">1.5 kg</option>
-        <option value="2 kg">2 kg</option>
-        <option value="2.5 kg">2.5 kg</option>
-        <option value="3 kg">3 kg</option>
-        <option value="3.5 kg">3.5 kg</option>
-        <option value="4 kg">4 kg</option>
-        <option value="4.5 kg">4.5 kg</option>
-        <option value="5 kg">5 kg</option>
-        <option value="5.5 kg">5.5 kg</option>
-        <option value="6 kg">6 kg</option>
-        <option value="6.5 kg">6.5 kg</option>
-        <option value="7 kg">7 kg</option>
-        <option value="7.5 kg">7.5 kg</option>
-        <option value="8 kg">8 kg</option>
-        <option value="8.5 kg">8.5 kg</option>
-        <option value="9 kg">9 kg</option>
-        <option value="9.5 kg">9.5 kg</option>
-        <option value="10 kg">10 kg</option>
-        <option value="10.5 kg">10.5 kg</option>
-        <option value="11 kg">11 kg</option>
-        <option value="11.5 kg">11.5 kg</option>
-        <option value="12 kg">12 kg</option>
-        <option value="12.5 kg">12.5 kg</option>
-        <option value="13 kg">13 kg</option>
-        <option value="13.5 kg">13.5 kg</option>
-        <option value="14 kg">14 kg</option>
-        <option value="14.5 kg">14.5 kg</option>
-        <option value="15 kg">15 kg</option>
+        <option value="0.5">0.5 kg</option>
+        <option value="1">1 kg</option>
+        <option value="1.5">1.5 kg</option>
+        <option value="2">2 kg</option>
+        <option value="2.5">2.5 kg</option>
+        <option value="3">3 kg</option>
+        <option value="3.5">3.5 kg</option>
+        <option value="4">4 kg</option>
+        <option value="4.5">4.5 kg</option>
+        <option value="5">5 kg</option>
+        <option value="5.5">5.5 kg</option>
+        <option value="6">6 kg</option>
+        <option value="6.5">6.5 kg</option>
+        <option value="7">7 kg</option>
+        <option value="7.5">7.5 kg</option>
+        <option value="8">8 kg</option>
+        <option value="8.5">8.5 kg</option>
+        <option value="9">9 kg</option>
+        <option value="9.5">9.5 kg</option>
+        <option value="10">10 kg</option>
+        <option value="10.5">10.5 kg</option>
+        <option value="11">11 kg</option>
+        <option value="11.5">11.5 kg</option>
+        <option value="12">12 kg</option>
+        <option value="12.5">12.5 kg</option>
+        <option value="13">13 kg</option>
+        <option value="13.5">13.5 kg</option>
+        <option value="14">14 kg</option>
+        <option value="14.5">14.5 kg</option>
+        <option value="15">15 kg</option>
       </select>
 
       <label>Your Preferred Delivery Time On Sunday*</label>
@@ -288,18 +174,19 @@
       <label>Your Area Name*</label>
       <input type="text" name="Area Name" placeholder="e.g., Narukur or Allipuram" required />
 
+      <!-- ✅ Price Box AFTER Area Name -->
+      <div class="price-box" id="priceBox">
+        Total Price: <span id="priceDisplay">--</span>
+      </div>
+
       <input type="hidden" name="Latitude" />
       <input type="hidden" name="Longitude" />
-
-      <label>Mention anything about this order here (Optional)</label>
-      <textarea name="Note" placeholder="Mention anything about this order here..."></textarea>
+      <input type="hidden" name="Language" value="English" />
 
       <div class="tick-area">
         <input type="checkbox" id="tickBox" />
         <label for="tickBox">I confirm that all the above details are correct and I want to place the order. ( Tick the box )</label>
       </div>
-
-      <input type="hidden" name="Language" value="English" />
 
       <div class="submit-area">
         <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit</button>
@@ -307,79 +194,35 @@
     </form>
   </div>
 
-  <div class="info-box">
-    <strong>Please double-check the details you entered above before submitting</strong><br /><br />
-    For fast and contactless delivery, kindly send us your current location via WhatsApp.<br />
-    Open WhatsApp → Tap 📎 → Tap "Location" → Send "Your current location".
-  </div>
-
   <script>
-    const submitBtn = document.getElementById("submitBtn");
-    const tickBox = document.getElementById("tickBox");
-    const form = document.getElementById("orderForm");
-
-    tickBox.addEventListener("change", function () {
-      submitBtn.disabled = !this.checked;
+    // ✅ Enable Submit Button only when checkbox is ticked
+    document.getElementById("tickBox").addEventListener("change", function () {
+      document.getElementById("submitBtn").disabled = !this.checked;
     });
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    // ✅ Auto Price Calculation based on Weight
+    const weightSelect = document.getElementById("weightSelect");
+    const priceDisplay = document.getElementById("priceDisplay");
+    const priceBox = document.getElementById("priceBox");
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
-      `;
+    weightSelect.addEventListener("change", function () {
+      const weight = parseFloat(this.value);
+      let price = 0;
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
-          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
+      if (weight === 0.5) {
+        price = 500;
+      } else if (weight >= 1) {
+        price = weight * 900;
+      }
 
-          const formData = new FormData(form);
-          formData.append("Ordered Date", new Date().toLocaleString());
-
-          fetch("https://script.google.com/macros/s/AKfycbyi-lJSOYk4X5ameVJAKDxu_3pYtEpUqPhjeMbvRjg2N65GPsrvKbebH090hbNrLIMCZQ/exec", {
-            method: "POST",
-            body: formData
-          })
-          .then(response => {
-            if (response.ok) {
-              alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
-              form.reset();
-              tickBox.checked = false;
-            } else {
-              alert("Something went wrong. Please try again.");
-            }
-          })
-          .catch(() => {
-            alert("Network error. Please check your connection and try again.");
-          })
-          .finally(() => {
-            submitBtn.innerHTML = "Submit";
-            submitBtn.disabled = true;
-          });
-
-        }, function () {
-          alert("Unable to fetch location. Please allow location access.");
-          submitBtn.innerHTML = "Submit";
-          submitBtn.disabled = false;
-        });
+      if (price > 0) {
+        priceDisplay.textContent = `${price} Rupees Only`;
+        priceBox.style.display = "block";
       } else {
-        alert("Geolocation is not supported by your browser.");
-        submitBtn.innerHTML = "Submit";
-        submitBtn.disabled = false;
+        priceDisplay.textContent = "--";
+        priceBox.style.display = "none";
       }
     });
-
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
-
 </body>
 </html>
