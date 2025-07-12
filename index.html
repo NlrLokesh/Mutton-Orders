@@ -1,4 +1,4 @@
-<!-- YOUR FULL HTML CODE STARTS HERE -->
+<!-- ✅ Your Full HTML Code Starts Here with Dynamic Styled Price Box -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,24 +6,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nellore Mutton Club</title>
-
-  <!-- ✅ Elegant font for premium heading -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
-      background-color: #000000;
+      background-color: #000;
       margin: 0;
       padding: 20px;
-      color: #ffffff;
+      color: #fff;
       text-align: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       line-height: 1.5;
     }
 
@@ -48,28 +40,20 @@
       margin: 0 auto 25px;
       border-radius: 10px;
       user-select: none;
-      max-width: 95%;
-      word-wrap: break-word;
     }
 
     @keyframes shine {
-      0% {
-        background-position: 0% center;
-      }
-      100% {
-        background-position: 200% center;
-      }
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
 
     .form-container {
       background-color: #1a1a1a;
       border-radius: 15px;
       padding: 25px 20px;
-      width: 100%;
       max-width: 500px;
       margin: 20px auto;
       box-shadow: 0 0 15px #ffffff40;
-      color: #ffffff;
       text-align: left;
     }
 
@@ -80,17 +64,12 @@
       border-radius: 5px;
       border: 1px solid #ffd700;
       background-color: #000;
-      color: #ffffff;
+      color: #fff;
       font-weight: bold;
       font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    input::placeholder,
-    select,
-    textarea::placeholder {
-      color: #cccccc;
-    }
+    input::placeholder, select, textarea::placeholder { color: #ccc; }
 
     input:focus, select:focus, textarea:focus {
       outline: none;
@@ -100,19 +79,14 @@
     }
 
     label {
-      text-align: left;
       display: block;
       margin-top: 15px;
       font-weight: 700;
-      color: #ffffff;
+      color: #fff;
       font-size: 1.05rem;
-      user-select: none;
     }
 
-    .submit-area {
-      margin-top: 25px;
-      text-align: center;
-    }
+    .submit-area { margin-top: 25px; text-align: center; }
 
     .submit-btn {
       padding: 14px 25px;
@@ -124,31 +98,20 @@
       border-radius: 12px;
       width: 100%;
       margin-top: 10px;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
       font-weight: 700;
       box-shadow: 0 5px 0 #8b6b00;
-      user-select: none;
-      letter-spacing: 0.05em;
     }
 
     .submit-btn:hover:not(:disabled) {
       background: linear-gradient(90deg, #ffd700, #b8860b);
       transform: scale(1.05);
       box-shadow: 0 7px 15px #ffd700aa;
-      color: #000;
-    }
-
-    .submit-btn:active:not(:disabled) {
-      transform: scale(0.98);
-      box-shadow: none;
     }
 
     .submit-btn:disabled {
       background: linear-gradient(to right, #444, #666);
       color: #bbb;
       cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
     }
 
     .info-box {
@@ -159,10 +122,8 @@
       border-radius: 10px;
       display: inline-block;
       max-width: 90%;
-      word-wrap: break-word;
-      color: #ffffff;
+      color: #fff;
       box-shadow: 0 0 8px #ffffff99 inset;
-      line-height: 1.4;
     }
 
     .tick-area {
@@ -171,9 +132,7 @@
       gap: 10px;
       margin-top: 20px;
       font-size: 14px;
-      text-align: left;
-      color: #ffffff;
-      user-select: none;
+      color: #fff;
     }
 
     .tick-area input[type="checkbox"] {
@@ -183,30 +142,26 @@
       accent-color: #b8860b;
     }
 
+    .price-box {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: #111;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px #ffd700aa;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
     @media (max-width: 480px) {
-      h1 {
-        font-size: 1.6rem;
-        padding: 10px 0.08in;
-      }
-
-      .form-container {
-        padding: 20px 15px;
-      }
-
-      .tick-area {
-        font-size: 13px;
-        gap: 8px;
-        margin-top: 18px;
-      }
-
-      button {
-        font-size: 16px;
-      }
-
-      .info-box {
-        font-size: 12px;
-        padding: 10px 0.08in;
-      }
+      h1 { font-size: 1.6rem; padding: 10px 0.08in; }
+      .form-container { padding: 20px 15px; }
+      .tick-area { font-size: 13px; gap: 8px; }
+      button { font-size: 16px; }
+      .info-box { font-size: 12px; padding: 10px 0.08in; }
     }
   </style>
 </head>
@@ -267,6 +222,11 @@
         <option value="15">15 kg</option>
       </select>
 
+      <!-- ✨ New Stylish Price Box -->
+      <div class="price-box" id="priceBox">
+        <div id="priceDisplay">Price</div>
+      </div>
+
       <label>Your Preferred Delivery Time On Sunday*</label>
       <select name="Preferred Delivery Time" required>
         <option value="" disabled selected>Select Delivery Time</option>
@@ -292,17 +252,12 @@
 
       <input type="hidden" name="Latitude" />
       <input type="hidden" name="Longitude" />
-
-      <!-- ✅ Price Calculation Section Replacing Textarea -->
-      <label>Price</label>
-      <input type="text" name="Price" id="priceDisplay" readonly placeholder="Calculated Price will appear here" />
+      <input type="hidden" name="Language" value="English" />
 
       <div class="tick-area">
         <input type="checkbox" id="tickBox" />
         <label for="tickBox">I confirm that all the above details are correct and I want to place the order. ( Tick the box )</label>
       </div>
-
-      <input type="hidden" name="Language" value="English" />
 
       <div class="submit-area">
         <button type="submit" id="submitBtn" class="submit-btn" disabled>Submit</button>
@@ -311,31 +266,51 @@
   </div>
 
   <div class="info-box">
-    <strong>Please double-check the details you entered above before submitting</strong><br /><br />
-    For fast and contactless delivery, kindly send us your current location via WhatsApp.<br />
+    <strong>Please double-check the details you entered above before submitting</strong><br><br>
+    For fast and contactless delivery, kindly send us your current location via WhatsApp.<br>
     Open WhatsApp → Tap 📎 → Tap "Location" → Send "Your current location".
   </div>
 
   <script>
+    const form = document.getElementById("orderForm");
     const submitBtn = document.getElementById("submitBtn");
     const tickBox = document.getElementById("tickBox");
-    const form = document.getElementById("orderForm");
+    const weightSelect = document.getElementById("weightSelect");
+    const priceBox = document.getElementById("priceBox");
+    const priceDisplay = document.getElementById("priceDisplay");
 
-    tickBox.addEventListener("change", function () {
-      submitBtn.disabled = !this.checked;
+    tickBox.addEventListener("change", () => {
+      submitBtn.disabled = !tickBox.checked;
+    });
+
+    weightSelect.addEventListener("change", function () {
+      const weight = parseFloat(this.value);
+      let price = 0;
+
+      if (weight === 0.5) {
+        price = 500;
+      } else if (weight > 0.5) {
+        price = weight * 900;
+      }
+
+      if (price > 0) {
+        priceBox.style.display = "block";
+        priceDisplay.textContent = `${price} Rupees Only`;
+      } else {
+        priceBox.style.display = "none";
+        priceDisplay.textContent = "";
+      }
     });
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
-      `;
+      submitBtn.innerHTML = `<span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...`;
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
-          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
+          form.querySelector("input[name='Latitude']").value = position.coords.latitude;
+          form.querySelector("input[name='Longitude']").value = position.coords.longitude;
 
           const formData = new FormData(form);
           formData.append("Ordered Date", new Date().toLocaleString());
@@ -348,8 +323,9 @@
             if (response.ok) {
               alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
               form.reset();
+              priceBox.style.display = "none";
+              priceDisplay.textContent = "";
               tickBox.checked = false;
-              document.getElementById("priceDisplay").value = "";
             } else {
               alert("Something went wrong. Please try again.");
             }
@@ -361,39 +337,20 @@
             submitBtn.innerHTML = "Submit";
             submitBtn.disabled = true;
           });
-
         }, function () {
           alert("Unable to fetch location. Please allow location access.");
           submitBtn.innerHTML = "Submit";
           submitBtn.disabled = false;
         });
       } else {
-        alert("Geolocation is not supported by your browser.");
+        alert("Geolocation not supported.");
         submitBtn.innerHTML = "Submit";
         submitBtn.disabled = false;
       }
     });
 
-    document.getElementById("weightSelect").addEventListener("change", function () {
-      const weight = parseFloat(this.value);
-      let price = 0;
-
-      if (weight === 0.5) {
-        price = 500;
-      } else if (weight > 0.5) {
-        price = weight * 900;
-      }
-
-      document.getElementById("priceDisplay").value = price > 0 ? `${price} Rupees Only` : "";
-    });
-
     const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `;
+    style.innerHTML = `@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`;
     document.head.appendChild(style);
   </script>
 </body>
