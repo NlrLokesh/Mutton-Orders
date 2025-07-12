@@ -183,26 +183,6 @@
       accent-color: #b8860b;
     }
 
-    .location-btn {
-      margin-top: 13px;
-      background: linear-gradient(90deg, #333300, #999900);
-      color: #fff;
-      font-weight: 700;
-      border-radius: 10px;
-      box-shadow: 0 4px 0 #666600;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .location-btn:hover {
-      background: linear-gradient(90deg, #999900, #333300);
-      transform: scale(1.03);
-    }
-
-    .location-btn:active {
-      transform: scale(0.97);
-      box-shadow: none;
-    }
-
     @media (max-width: 480px) {
       h1 {
         font-size: 1.6rem;
@@ -241,8 +221,6 @@
       <label>Full Name*</label>
       <input type="text" name="Full Name" placeholder="Enter Your Name Here" required />
 
-      
-
       <label>Phone Number*</label>
       <input type="tel" name="Phone Number" placeholder="Enter 10-digit number" required pattern="[0-9]{10}" />
 
@@ -257,36 +235,11 @@
       <label>Select Weight*</label>
       <select name="Weight" required>
         <option value="" disabled selected>Select Weight</option>
-        <option value="0.5 kg">0.5 kg</option>
-        <option value="1 kg">1 kg</option>
-        <option value="1.5 kg">1.5 kg</option>
-        <option value="2 kg">2 kg</option>
-        <option value="2.5 kg">2.5 kg</option>
-        <option value="3 kg">3 kg</option>
-        <option value="3.5 kg">3.5 kg</option>
-        <option value="4 kg">4 kg</option>
-        <option value="4.5 kg">4.5 kg</option>
-        <option value="5 kg">5 kg</option>
-        <option value="5.5 kg">5.5 kg</option>
-        <option value="6 kg">6 kg</option>
-        <option value="6.5 kg">6.5 kg</option>
-        <option value="7 kg">7 kg</option>
-        <option value="7.5 kg">7.5 kg</option>
-        <option value="8 kg">8 kg</option>
-        <option value="8.5 kg">8.5 kg</option>
-        <option value="9 kg">9 kg</option>
-        <option value="9.5 kg">9.5 kg</option>
-        <option value="10 kg">10 kg</option>
-        <option value="10.5 kg">10.5 kg</option>
-        <option value="11 kg">11 kg</option>
-        <option value="11.5 kg">11.5 kg</option>
-        <option value="12 kg">12 kg</option>
-        <option value="12.5 kg">12.5 kg</option>
-        <option value="13 kg">13 kg</option>
-        <option value="13.5 kg">13.5 kg</option>
-        <option value="14 kg">14 kg</option>
-        <option value="14.5 kg">14.5 kg</option>
-        <option value="15 kg">15 kg</option>
+        <!-- Options from 0.5 kg to 15 kg -->
+        ${[...Array(30)].map((_, i) => {
+          const value = (i + 1) * 0.5;
+          return `<option value="${value} kg">${value} kg</option>`;
+        }).join("")}
       </select>
 
       <label>Your Preferred Delivery Time On Sunday*</label>
@@ -309,17 +262,9 @@
         <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
       </select>
 
-      
-
       <label>Your Area Name*</label>
       <input type="text" name="Area Name" placeholder="e.g., Narukur or Allipuram" required />
 
-
-      
-
-  
-
-      <button type="button" class="submit-btn location-btn" onclick="getLocation()">Send My Location (Press Here) </button>
       <input type="hidden" name="Latitude" />
       <input type="hidden" name="Longitude" />
 
@@ -331,7 +276,6 @@
         <label for="tickBox">I confirm that all the above details are correct and I want to place the order. ( Tick the box )</label>
       </div>
 
-      <!-- ✅ Hidden input for language -->
       <input type="hidden" name="Language" value="English" />
 
       <div class="submit-area">
@@ -347,75 +291,70 @@
   </div>
 
   <script>
-  const submitBtn = document.getElementById("submitBtn");
-  const tickBox = document.getElementById("tickBox");
-  const form = document.getElementById("orderForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const tickBox = document.getElementById("tickBox");
+    const form = document.getElementById("orderForm");
 
-  // ✅ Enable/disable the submit button when checkbox is ticked
-  tickBox.addEventListener("change", function () {
-    submitBtn.disabled = !this.checked;
-  });
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        document.querySelector("input[name='Latitude']").value = position.coords.latitude;
-        document.querySelector("input[name='Longitude']").value = position.coords.longitude;
-        alert("LOCATION ADDED SUCCESSFULLY!");
-      }, function () {
-        alert("Unable to fetch location. Please allow location access.");
-      });
-    } else {
-      alert("Geolocation is not supported by your browser.");
-    }
-  }
-
-  // ✅ Prevent multiple form submissions
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // 🔒 Disable submit button instantly
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
-    `;
-
-    const formData = new FormData(form);
-    formData.append("Ordered Date", new Date().toLocaleString());
-
-    fetch("https://script.google.com/macros/s/AKfycbyi-lJSOYk4X5ameVJAKDxu_3pYtEpUqPhjeMbvRjg2N65GPsrvKbebH090hbNrLIMCZQ/exec", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
-        form.reset();
-        tickBox.checked = false;
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(() => {
-      alert("Network error. Please check your connection and try again.");
-    })
-    .finally(() => {
-      submitBtn.innerHTML = "Submit";
-      submitBtn.disabled = true;
+    tickBox.addEventListener("change", function () {
+      submitBtn.disabled = !this.checked;
     });
-  });
 
-  // ✅ Spinner animation style
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  `;
-  document.head.appendChild(style);
-</script>
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span style="display:inline-block;width:18px;height:18px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;"></span>Submitting...
+      `;
 
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          document.querySelector("input[name='Latitude']").value = position.coords.latitude;
+          document.querySelector("input[name='Longitude']").value = position.coords.longitude;
 
+          const formData = new FormData(form);
+          formData.append("Ordered Date", new Date().toLocaleString());
+
+          fetch("https://script.google.com/macros/s/AKfycbyi-lJSOYk4X5ameVJAKDxu_3pYtEpUqPhjeMbvRjg2N65GPsrvKbebH090hbNrLIMCZQ/exec", {
+            method: "POST",
+            body: formData
+          })
+          .then(response => {
+            if (response.ok) {
+              alert("THANKS FOR ORDERING... ORDER SUBMITTED SUCCESSFULLY!");
+              form.reset();
+              tickBox.checked = false;
+            } else {
+              alert("Something went wrong. Please try again.");
+            }
+          })
+          .catch(() => {
+            alert("Network error. Please check your connection and try again.");
+          })
+          .finally(() => {
+            submitBtn.innerHTML = "Submit";
+            submitBtn.disabled = true;
+          });
+
+        }, function () {
+          alert("Unable to fetch location. Please allow location access.");
+          submitBtn.innerHTML = "Submit";
+          submitBtn.disabled = false;
+        });
+      } else {
+        alert("Geolocation is not supported by your browser.");
+        submitBtn.innerHTML = "Submit";
+        submitBtn.disabled = false;
+      }
+    });
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
