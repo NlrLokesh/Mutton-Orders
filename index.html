@@ -309,20 +309,15 @@
         <option value="1:00 PM Afternoon">1:00 PM Afternoon</option>
       </select>
 
-      <label>Your House Number*</label>
-      <input type="text" name="House Number" placeholder="e.g., 1-11" required />
+      
 
       <label>Your Area Name*</label>
       <input type="text" name="Area Name" placeholder="e.g., Narukur or Allipuram" required />
 
-      <label>Your Nearest Landmark*</label>
-      <input type="text" name="Nearest Landmark" placeholder="e.g., Near Temple, School" required />
 
-      <label>Pin Code*</label>
-      <input type="text" name="Pin Code" placeholder="e.g., 524002" required pattern="[0-9]{6}" />
+      
 
-      <label>Town / City Name*</label>
-      <input type="text" name="Town / City Name" placeholder="e.g., Nellore" required />
+  
 
       <button type="button" class="submit-btn location-btn" onclick="getLocation()">Send My Location (Press Here)</button>
       <input type="hidden" name="Latitude" />
@@ -388,7 +383,7 @@
     const formData = new FormData(form);
     formData.append("Ordered Date", new Date().toLocaleString());
 
-    fetch("https://script.google.com/macros/s/AKfycbxS-4VncOLJGjONB4FNj5ymSIRnxJjP4tM9PdRruv03CZfTo6XAXSSk6evVkOwl22r50Q/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyi-lJSOYk4X5ameVJAKDxu_3pYtEpUqPhjeMbvRjg2N65GPsrvKbebH090hbNrLIMCZQ/exec", {
       method: "POST",
       body: formData
     })
